@@ -1,136 +1,113 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Feliz Dia dos Namorados</title>
-<style>
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #000000;
-    color: #fff0f0;
-    min-height: 100vh;
-    overflow-x: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px 10px 60px;
-  }
-  header {
-    z-index: 10;
-    text-align: center;
-    margin-bottom: 15px;
-  }
-  header h1 {
-    font-size: 2.5rem;
-    color: #ff2a2a;
-    margin-bottom: 5px;
-    text-shadow: 0 0 8px #ff0000cc;
-  }
-  #counter {
-    font-size: 1.3rem;
-    color: #ff4c4c;
-    font-weight: 700;
-    margin-bottom: 30px;
-    text-shadow: 0 0 6px #ff0000aa;
-  }
-  main {
-    max-width: 90vw;
-    background: rgba(255, 0, 0, 0.1);
-    padding: 20px 25px;
-    border-radius: 15px;
-    box-shadow: 0 0 15px #ff0000aa;
-    color: #fff0f0;
-    font-style: italic;
-    line-height: 1.6;
-    z-index: 10;
-  }
-  .slideshow-container {
-    position: relative;
-    max-width: 90vw;
-    height: 55vw;
-    max-height: 350px;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 0 20px #ff0000cc;
-    margin: 30px 0;
-    z-index: 10;
-  }
-  .slides {
-    display: none;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-  }
-  .active {
-    display: block;
-  }
-  footer {
-    z-index: 10;
-    margin-bottom: 40px;
-  }
-  iframe.spotify-player {
-    border-radius: 15px;
-    box-shadow: 0 0 15px #ff0000cc;
-    width: 90vw !important;
-    max-width: 300px;
-    height: 80px;
-  }
-  /* Corações caindo */
-  .heart {
-    position: fixed;
-    top: -50px;
-    width: 18px;
-    height: 18px;
-    background-color: #ff0000;
-    clip-path: polygon(
-      50% 0%, 61% 15%, 75% 15%, 90% 35%, 90% 55%, 
-      75% 75%, 50% 100%, 25% 75%, 10% 55%, 10% 35%, 25% 15%, 39% 15%
-    );
-    opacity: 0.8;
-    animation-name: fall;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-  }
-  @keyframes fall {
-    0% {
-      transform: translateY(0) rotate(0deg);
-      opacity: 0.8;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feliz Dia dos Namorados</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: #fff0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px 10px 80px;
+      overflow-x: hidden;
     }
-    100% {
-      transform: translateY(110vh) rotate(360deg);
-      opacity: 0;
+    h1 {
+      color: #ff2a2a;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 10px;
+      text-shadow: 0 0 8px #ff0000cc;
     }
-  }
-</style>
+    #counter {
+      font-size: 1.2rem;
+      color: #ff4c4c;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 600;
+      text-shadow: 0 0 6px #ff0000aa;
+    }
+    main {
+      max-width: 90vw;
+      text-align: center;
+      background: rgba(255, 0, 0, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #ff0000aa;
+      margin-bottom: 30px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+    .slideshow-container {
+      max-width: 90vw;
+      height: 55vw;
+      max-height: 350px;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 20px #ff0000cc;
+      margin-bottom: 30px;
+    }
+    .slides {
+      display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .active {
+      display: block;
+    }
+    iframe.spotify-player {
+      border-radius: 15px;
+      box-shadow: 0 0 15px #ff0000cc;
+      width: 90vw;
+      max-width: 300px;
+      height: 80px;
+    }
+    .heart {
+      position: fixed;
+      top: -30px;
+      z-index: 1;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-iteration-count: 1;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header>
   <h1>Feliz Dia dos Namorados</h1>
-  <div id="counter">Carregando contador...</div>
-</header>
+  <div id="counter">Carregando...</div>
 
-<main>
-  <p>"Em cada riso teu, encontrei abrigo; em cada memória nossa, um pedacinho do paraíso. Amar você é viver uma história escrita com carinho, cumplicidade e sonhos que se entrelaçam. Hoje, celebro não só o Dia dos Namorados, mas cada instante ao teu lado — onde o tempo desacelera e o amor floresce, simples e verdadeiro!"</p>
-</main>
+  <main>
+    <p>"Em cada riso teu, encontrei abrigo; em cada memória nossa, um pedacinho do paraíso. Amar você é viver uma história escrita com carinho, cumplicidade e sonhos que se entrelaçam. Hoje, celebro não só o Dia dos Namorados, mas cada instante ao teu lado — onde o tempo desacelera e o amor floresce, simples e verdadeiro!"</p>
+  </main>
 
-<div class="slideshow-container">
-  <img src="imagem1.jpeg" class="slides active" alt="Foto 1" />
-  <img src="imagem2.jpeg" class="slides" alt="Foto 2" />
-  <img src="imagem3.jpeg" class="slides" alt="Foto 3" />
-  <img src="imagem4.jpeg" class="slides" alt="Foto 4" />
-  <img src="imagem5.jpeg" class="slides" alt="Foto 5" />
-  <img src="imagem6.jpeg" class="slides" alt="Foto 6" />
-  <img src="imagem7.jpeg" class="slides" alt="Foto 7" />
-</div>
+  <div class="slideshow-container">
+    <img src="imagem1.jpeg" class="slides active" alt="Foto 1">
+    <img src="imagem2.jpeg" class="slides" alt="Foto 2">
+    <img src="imagem3.jpeg" class="slides" alt="Foto 3">
+    <img src="imagem4.jpeg" class="slides" alt="Foto 4">
+    <img src="imagem5.jpeg" class="slides" alt="Foto 5">
+    <img src="imagem6.jpeg" class="slides" alt="Foto 6">
+    <img src="imagem7.jpeg" class="slides" alt="Foto 7">
+  </div>
 
-<footer>
   <iframe
     class="spotify-player"
     src="https://open.spotify.com/embed/track/7Ewz6bJ97vUqk5HdkvguFQ"
@@ -138,49 +115,75 @@
     allowtransparency="true"
     allow="encrypted-media">
   </iframe>
-</footer>
 
-<script>
-  // Slideshow automático
-  let slideIndex = 0;
-  const slides = document.querySelectorAll('.slides');
-  function showSlides() {
-    slides.forEach(slide => slide.classList.remove('active'));
-    slideIndex++;
-    if (slideIndex > slides.length) slideIndex = 1;
-    slides[slideIndex - 1].classList.add('active');
-    setTimeout(showSlides, 4000);
-  }
-  showSlides();
+  <script>
+    // Slideshow
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slides');
+    function showSlides() {
+      slides.forEach(s => s.classList.remove('active'));
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add('active');
+    }
+    setInterval(showSlides, 4000);
 
-  // Contador ao vivo de dias, horas e minutos desde 18/05/2017
-  const counterElem = document.getElementById('counter');
-  const startDate = new Date('2017-05-18T00:00:00');
-  function updateCounter() {
-    const now = new Date();
-    let diff = now - startDate; // diferença em ms
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    diff -= days * (1000 * 60 * 60 * 24);
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    diff -= hours * (1000 * 60 * 60);
-    const minutes = Math.floor(diff / (1000 * 60));
-    counterElem.textContent = `Desde 18/05/2017, já se passaram ${days} dias, ${hours} horas e ${minutes} minutos juntos.`;
-  }
-  updateCounter();
-  setInterval(updateCounter, 60000);
+    // Contador ao vivo com segundos
+    const counterElem = document.getElementById('counter');
+    const startDate = new Date('2017-05-18T00:00:00');
 
-  // Criar corações caindo
-  function createHeart() {
-    const heart = document.createElement('div');
-    heart.classList.add('heart');
-    heart.style.left = Math.random() * window.innerWidth + 'px';
-    heart.style.animationDuration = 4 + Math.random() * 4 + 's';
-    heart.style.opacity = (0.3 + Math.random() * 0.7).toFixed(2);
-    document.body.appendChild(heart);
-    setTimeout(() => { heart.remove(); }, 8000);
-  }
-  setInterval(createHeart, 400);
-</script>
+    function updateCounter() {
+      const now = new Date();
+
+      let years = now.getFullYear() - startDate.getFullYear();
+      let months = now.getMonth() - startDate.getMonth();
+      let days = now.getDate() - startDate.getDate();
+      let hours = now.getHours() - startDate.getHours();
+      let minutes = now.getMinutes() - startDate.getMinutes();
+      let seconds = now.getSeconds() - startDate.getSeconds();
+
+      if (seconds < 0) {
+        seconds += 60;
+        minutes--;
+      }
+      if (minutes < 0) {
+        minutes += 60;
+        hours--;
+      }
+      if (hours < 0) {
+        hours += 24;
+        days--;
+      }
+      if (days < 0) {
+        months--;
+        const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+        days += prevMonth.getDate();
+      }
+      if (months < 0) {
+        months += 12;
+        years--;
+      }
+
+      counterElem.textContent =
+        `Estamos juntos há ${years} anos, ${months} meses, ${days} dias, ` +
+        `${hours} horas, ${minutes} minutos e ${seconds} segundos.`;
+    }
+
+    updateCounter();
+    setInterval(updateCounter, 1000);
+
+    // Emojis ❤️ caindo
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.fontSize = (16 + Math.random() * 20) + 'px';
+      heart.style.animationDuration = 4 + Math.random() * 4 + 's';
+      heart.textContent = '❤️';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHeart, 400);
+  </script>
 
 </body>
 </html>
